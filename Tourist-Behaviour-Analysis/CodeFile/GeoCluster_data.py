@@ -1,3 +1,4 @@
+# Geographical Data Clustering
 import math as m
 import numpy as np
 import pandas as pd
@@ -30,8 +31,10 @@ x = cluster_label
 cluster_points = {}
 for i in range(num_clusters + 1):
     cluster_points[i] = []
+    
+cluster_points[-1]=[]
 
-for i in range(len(x)):
+for i in range(0,len(x)):
     l = cluster_points[x[i]]
     l.append(coords[i])
     cluster_points[x[i]] = l
@@ -73,13 +76,3 @@ m.arcgisimage(service='World_Shaded_Relief', xpixels=5000, verbose=False)
 plt.show()
 
 # Finding Cluster representatives
-
-cluster_exemplar_photoid = {}
-cluster_exemplar = {}
-for i in range(num_clusters + 1):
-    cluster_exemplar[i] = []
-    cluster_exemplar_photoid[i] = []
-
-for i in range(num_clusters):
-    l = np.rad2deg(clusterer.exemplars_[i])
-    cluster_exemplar[i] = l
