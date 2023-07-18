@@ -50,7 +50,7 @@ for i in range(0,len(data.index)):
     # obtain only nouns
     nouns = []
     for w in stemmed:
-        for word,pos in nltk.pos_tag(w):
+        for word, pos in nltk.pos_tag([w]):
              if (pos == 'NN' or pos == 'NNP' or pos == 'NNS' or pos == 'NNPS'):
                 nouns.append(w)
 
@@ -70,7 +70,7 @@ for i in range(0,len(data.index)):
     
 Info=list(set(Info))
 # change file name
-data2.to_csv("Results/TextualMetadataProcessing/Textproc1M.csv",index=False)\
+data2.to_csv("Results/TextualMetadataProcessing/Textproc1M.csv",index=False)
 newfile= "Results/TextualMetadataProcessing/Textproc1M.csv"
 newframe = pd.read_csv(newfile)
 
