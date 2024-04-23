@@ -50,6 +50,8 @@ for month in months:
     yr = np.asarray(year)
 
     plt.scatter(year, monthCt)
+    # Restrict x-axis to years 2004-2013
+    plt.xlim(2004, 2013)  # Add this line to set the x-axis limits
 
     poly = make_pipeline(PolynomialFeatures(3), regr)
 
